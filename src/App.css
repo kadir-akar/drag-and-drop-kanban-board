@@ -7,3 +7,12 @@ body,
 #root {
   @apply bg-black text-white box-border;
 }
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
