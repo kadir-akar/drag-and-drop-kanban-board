@@ -85,6 +85,10 @@ const KanbanBoard = () => {
     };
     setTasks([...tasks, newTask]);
   };
+  const deleteTask = (id: Id) => {
+    const newTasks = tasks.filter((task) => task.id !== id);
+    setTasks(newTasks);
+  };
   return (
     <div
       className="m-auto mt-5 min-h-screen  items-center overflow-x-auto overflow-y-hidden px-[40px] w-full
@@ -118,6 +122,7 @@ const KanbanBoard = () => {
                   deleteColumn={deleteColumn}
                   updateColumn={updateColumn}
                   createTask={createTask}
+                  deleteTask={deleteTask}
                   tasks={tasks.filter((task) => task.columnId === column.id)}
                 />
               ))}

@@ -19,10 +19,12 @@ interface Props {
 
   createTask: (columnId: Id) => void;
   tasks: Task[];
+  deleteTask: (id: Id) => void;
 }
 
 const ColumnContainer = (props: Props) => {
-  const { columns, deleteColumn, updateColumn, createTask, tasks } = props;
+  const { columns, deleteColumn, updateColumn, createTask, tasks, deleteTask } =
+    props;
 
   const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -57,6 +59,7 @@ const ColumnContainer = (props: Props) => {
       ></div>
     );
   }
+
   return (
     <div
       ref={setNodeRef}
@@ -107,7 +110,7 @@ const ColumnContainer = (props: Props) => {
       <div className="flex flex-grow">
         <div className="flex flex-col gap-2 w-full">
           {tasks.map((task) => (
-            <TaskCard key={task.id} task={task} />
+            <TaskCard key={task.id} task={task} deleteTask={deleteTask} />
           ))}
         </div>
       </div>
