@@ -3,10 +3,10 @@ import { PlusIcon } from "../icons/PlusIcon";
 
 import { Column, Id, Task } from "../types";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { TaskCard } from "./TaskCard";
 
-import { useSortable } from "@dnd-kit/sortable";
+import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
 import ref from "react";
@@ -20,13 +20,23 @@ interface Props {
   createTask: (columnId: Id) => void;
   tasks: Task[];
   deleteTask: (id: Id) => void;
+  updateTask: (id: Id, content: string) => void;
 }
 
 const ColumnContainer = (props: Props) => {
-  const { columns, deleteColumn, updateColumn, createTask, tasks, deleteTask } =
-    props;
+  const {
+    columns,
+    deleteColumn,
+    updateColumn,
+    createTask,
+    tasks,
+    deleteTask,
+    updateTask,
+  } = props;
 
   const [editMode, setEditMode] = useState<boolean>(false);
+
+  const tasksIds = useMemo(() => tasks.map((task) => task.id), [tasks]);
 
   const {
     setNodeRef,
@@ -54,7 +64,7 @@ const ColumnContainer = (props: Props) => {
         style={style}
         className="
      bg-columnBackgroundColor opacity-40 border-2 border-rose-500 w-[350px] h-[500px]
-     max-h-[500px] rounded-md flex flex-col
+     max-h-[500px] rounded-md flex flex-col 
     "
       ></div>
     );
@@ -64,16 +74,16 @@ const ColumnContainer = (props: Props) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="bg-columnBackgroundColor w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col"
+      className="bg-columnBackgroundColor  w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col  "
     >
       <div
         {...attributes}
         {...listeners}
         onClick={() => setEditMode(true)}
         className="
-      bg-mainBackgroundColor text-md h-[50px] cursor-grab rounded-md rounded-b-none p-2 font-bold 
-      border-columnBackgroundColor border-4  flex gap-2
-      justify-between items-center
+      bg-mainBackgroundColor text-md h-[50px] cursor-grab rounded-md rounded-b-none p-4 font-bold 
+      border-columnBackgroundColor border-1 flex gap-2 border-b-2
+      justify-between items-center 
       "
       >
         {!editMode && columns.title}
@@ -95,27 +105,38 @@ const ColumnContainer = (props: Props) => {
             }}
           ></input>
         )}
-        <div className="flex gap-5">
+        <div className="flex gap-5 ">
           <div className="flex justify-center items-center rounded-full bg-columnBackgroundColor px-2 py-1 text-sm">
-            0
+            {tasks.length}
           </div>
           <button
             onClick={() => deleteColumn(columns.id)}
-            className="stroke-gray-500 hover:stroke-white hover:bg-columnBackgroundColor"
+            className="stroke-gray-500 hover:stroke-white "
           >
             <TrashIcon />
           </button>
         </div>
       </div>
       <div className="flex flex-grow">
-        <div className="flex flex-col gap-2 w-full">
-          {tasks.map((task) => (
-            <TaskCard key={task.id} task={task} deleteTask={deleteTask} />
-          ))}
+        <div
+          className="flex flex-col gap-2 w-full h-[400px] 
+        overflow-x-hidden
+        overflow-y-scrool"
+        >
+          <SortableContext items={tasksIds}>
+            {tasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                deleteTask={deleteTask}
+                updateTask={updateTask}
+              />
+            ))}
+          </SortableContext>
         </div>
       </div>
       <button
-        className="flex gap-2 items-center border-columnBackgroundColor border-2 rounded p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor active:bg-black border-t-black "
+        className="flex gap-2 items-center border-columnBackgroundColor border-2 rounded p-3 border-x-columnBackgroundColor hover:bg-mainBackgroundColor active:bg-black border-t-black "
         onClick={() => {
           createTask(columns.id);
         }}
