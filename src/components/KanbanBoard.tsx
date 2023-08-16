@@ -36,7 +36,9 @@ const KanbanBoard = () => {
   const deleteColumn = (id: Id) => {
     const newColumns = columns.filter((column) => column.id !== id);
     setColumns(newColumns);
-    console.log("hi");
+
+    const newTasks = tasks.filter((task) => task.columnId !== id);
+    setTasks(newTasks);
   };
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -97,7 +99,26 @@ const KanbanBoard = () => {
         const overTaskIndex = tasks.findIndex(
           (task) => task.id === overColumnId
         );
+
+        if (tasks[activeTaskIndex].columnId !== tasks[overTaskIndex].columnId) {
+          tasks[activeTaskIndex].columnId = tasks[overTaskIndex].columnId;
+        }
+
         return arrayMove(tasks, activeTaskIndex, overTaskIndex);
+      });
+    }
+
+    const isOverAColumn = active.data.current?.type === "column";
+
+    if (isActiveATask && isOverAColumn) {
+      setTasks((tasks) => {
+        const activeTaskIndex = tasks.findIndex(
+          (task) => task.id === activeColumnId
+        );
+
+        tasks[activeTaskIndex].columnId = overColumnId;
+
+        return arrayMove(tasks, activeTaskIndex, activeTaskIndex);
       });
     }
   };
