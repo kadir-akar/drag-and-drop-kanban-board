@@ -1,27 +1,21 @@
-# React + TypeScript + Vite
+# Drag-and-Drop Kanban Board Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This is a drag-and-drop Kanban board project designed to help you manage tasks, projects, or any other workflow in a visual and organized manner. The project provides a user-friendly interface that allows you to create, update, and organize tasks using a drag-and-drop mechanism.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Create Column:** Easily create column for your task
+- **Task Creation:** Add new tasks with titles, descriptions, due dates, and other relevant information.
+- **Responsive Design:** Access and manage your board from various devices, including desktops, tablets, and smartphones
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Upcoming features
 
-- Configure the top-level `parserOptions` property like this:
+- 🐟 **Set theme** for your column and tasks
+- 🐟 **Customizable Workflow:** Define your own workflow stages and adapt the board to your specific needs.
+- 🐟 **User Authentication:** Securely log in to the platform to keep your tasks private and organized.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Installation
+- clone this repo
+- ``npm install``
