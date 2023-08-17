@@ -136,7 +136,7 @@ const KanbanBoard = () => {
   const createTask = (columnId: Id) => {
     const newTask: Task = {
       id: new Date().getTime().toString(),
-      content: `Task ${tasks.length + 1}`,
+      content: `Task  ${tasks.length + 1}`,
       columnId,
     };
     setTasks([...tasks, newTask]);
@@ -181,7 +181,7 @@ const KanbanBoard = () => {
           className="m-auto flex gap-2 
       "
         >
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-5 flex-wrap mb-5">
             <SortableContext items={columnsId}>
               {columns.map((column) => (
                 <ColumnContainer

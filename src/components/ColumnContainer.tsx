@@ -1,5 +1,4 @@
 import { TrashIcon } from "../icons/TrashIcon";
-import { PlusIcon } from "../icons/PlusIcon";
 
 import { Column, Id, Task } from "../types";
 
@@ -9,7 +8,6 @@ import { TaskCard } from "./TaskCard";
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-import ref from "react";
 import TaskIcon from "../icons/TaskIcon";
 
 interface Props {
@@ -82,7 +80,7 @@ const ColumnContainer = (props: Props) => {
         onClick={() => setEditMode(true)}
         className="
       bg-mainBackgroundColor text-md h-[50px] cursor-grab rounded-md rounded-b-none p-4 font-bold 
-      border-columnBackgroundColor border-1 flex gap-2 border-b-2
+      border-columnBackgroundColor border-1 flex gap-4 border-b-2
       justify-between items-center 
       "
       >
