@@ -1,4 +1,3 @@
-import React from "react";
 import { Id, Task } from "../types";
 import { TrashIcon } from "../icons/TrashIcon";
 import { useState } from "react";

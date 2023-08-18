@@ -2,7 +2,7 @@ import { TrashIcon } from "../icons/TrashIcon";
 
 import { Column, Id, Task } from "../types";
 
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { TaskCard } from "./TaskCard";
 
 import { SortableContext, useSortable } from "@dnd-kit/sortable";
