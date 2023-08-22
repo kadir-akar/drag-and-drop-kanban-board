@@ -18,9 +18,9 @@ This is a drag-and-drop Kanban board project designed to help you manage tasks, 
 
 ##Technologies Used
 
--React
--Dnd-kit
--TypeScript
+- React
+- Dnd-kit
+- TypeScript
 
 ## Installation
 - clone this repo
