@@ -23,5 +23,8 @@ This is a drag-and-drop Kanban board project designed to help you manage tasks, 
 - TypeScript
 
 ## Installation
-- clone this repo
-- ``npm install``
+Clone this repository to your local machine. Navigate to the project directory in your terminal. Run npm install to install the necessary dependencies.
+
+## Contributing
+If there is an error or problem, first report the problem in the issue section.
+If you want to contribute about upcoming feature Fork this repository. Create a new branch for your changes. Make your changes and commit them with a descriptive commit message. Push your changes to your forked repository. Open a pull request to merge your changes into the main repository.
