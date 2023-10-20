@@ -16,7 +16,7 @@ This is a drag-and-drop Kanban board project designed to help you manage tasks, 
 - 🐟 **Customizable Workflow:** Define your own workflow stages and adapt the board to your specific needs.
 - 🐟 **User Authentication:** Securely log in to the platform to keep your tasks private and organized.
 
-##Technologies Used
+## Technologies Used
 
 - React
 - Dnd-kit
